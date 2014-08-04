@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'queenbee/ruby/version'
+require 'queenbee/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "queenbee-ruby"
-  spec.version       = Queenbee::Ruby::VERSION
+  spec.version       = Queenbee::VERSION
   spec.authors       = ["Olivier"]
   spec.email         = ["olivier@yafoy.com"]
   spec.summary       = %q{Gem to send e-commerce orders to the Queenbee central app.}
@@ -20,4 +20,11 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.6"
   spec.add_development_dependency "rake"
+
+  spec.add_dependency("rest-client", "~> 1.4")
+  spec.add_dependency("json", "~> 1.8.1")
+
+  spec.add_development_dependency("mocha", "~> 0.13.2")
+  spec.add_development_dependency("shoulda", "~> 3.4.0")
+  spec.add_development_dependency("test-unit")
 end
