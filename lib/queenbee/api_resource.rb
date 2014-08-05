@@ -6,7 +6,7 @@ module Queenbee
 
     def self.url()
       if self == APIResource
-        raise NotImplementedError.new('APIResource is an abstract class.  You should perform actions on its subclasses (Charge, Customer, etc.)')
+        raise NotImplementedError.new('APIResource is an abstract class.  You should perform actions on its subclasses)')
       end
       "/#{CGI.escape(class_name.downcase)}s"
     end

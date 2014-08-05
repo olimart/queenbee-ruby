@@ -21,10 +21,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 1.6"
   spec.add_development_dependency "rake"
 
-  spec.add_dependency("rest-client", "~> 1.4")
   spec.add_dependency("json", "~> 1.8.1")
 
-  spec.add_development_dependency("mocha", "~> 0.13.2")
   spec.add_development_dependency("shoulda", "~> 3.4.0")
   spec.add_development_dependency("test-unit")
 end

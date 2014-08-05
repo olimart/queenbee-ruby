@@ -1,5 +1,4 @@
 # Queenbee Ruby bindings
-require "rest_client"
 require "json"
 require "net/http"
 require "uri"
@@ -29,8 +28,6 @@ module Queenbee
       attr_accessor :token, :api_base, :verify_ssl_certs, :api_version
     end
 
-    # self.token = config.queenbee_token if config
-
     def self.api_url(url="")
       @api_base + url
     end
@@ -43,30 +40,39 @@ module Queenbee
       url = api_url(url)
 
       begin
-        # response = execute_request(request_opts)
         uri = URI(url)
-        request = Net::HTTP::Post.new(uri)
+        request = Net::HTTP::Post.new(uri) if method == :post
 
         request["User-Agent"] = "Queenbee gem"
         request["Authorization"] = "Token token=\"#{token}\""
         request["Content-Type"] = "application/json"
-
         request.body = params.to_json
 
-        response = Net::HTTP.start(uri.hostname, uri.port) {|http|
-          http.request(request)
+        http = Net::HTTP.new(uri.hostname, uri.port)
+
+        # see http://www.rubyinside.com/how-to-cure-nethttps-risky-default-https-behavior-4010.html
+        # for info about ssl verification
+
+        http.use_ssl = true if uri.scheme == "https"
+        http.verify_mode = OpenSSL::SSL::VERIFY_NONE if uri.scheme == "https"
+
+        response = http.start {|h|
+          h.request(request)
         }
 
-        # since http.request doesn't throw any exceptions
+        # since http.request doesn't throw such exceptions, check them by status codes
         handle_api_error(response.code, response.body)
 
-        puts response.code
       rescue SocketError => e
           handle_connection_error(e)
       rescue NoMethodError => e
           handle_connection_error(e)
+      rescue OpenSSL::SSL::SSLError => e
+          handle_connection_error(e)
+      rescue Errno::ECONNREFUSED, Errno::EHOSTUNREACH => e
+          handle_connection_error(e)
       rescue Timeout::Error, Errno::EINVAL, Errno::ECONNRESET, EOFError,
-          Net::HTTPBadResponse, Net::HTTPHeaderSyntaxError, Net::ProtocolError => e
+          Net::HTTPBadResponse, Net::HTTPHeaderSyntaxError, Net::ProtocolError  => e
           handle_connection_error(e)
       end
 
@@ -96,10 +102,12 @@ module Queenbee
       end
 
       case rcode
-        when 400, 404
+        when 400, 404, 422
           raise invalid_request_error error, rcode, rbody, error_obj
         when 401
           raise authentication_error error, rcode, rbody, error_obj
+        when 500
+          raise api_error error, rcode, rbody, error_obj
         else
           # raise api_error error, rcode, rbody, error_obj
       end
