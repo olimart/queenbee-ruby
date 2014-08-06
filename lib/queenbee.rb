@@ -1,4 +1,7 @@
 # Queenbee Ruby bindings
+require "cgi"
+require "set"
+require "openssl"
 require "json"
 require "net/http"
 require "uri"
