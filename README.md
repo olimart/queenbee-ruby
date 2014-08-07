@@ -44,3 +44,10 @@ Queenbee::Order.create(
 ```
 
 **For Sinatra app** you may need to add `require 'bundler/setup'`
+
+
+## Tests
+
+```ruby
+rake test
+```
