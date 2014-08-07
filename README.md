@@ -1,6 +1,6 @@
 # Queenbee::Ruby
 
-TODO: Write a gem description
+Simple gem for communicating with external API. Heavily inspired by stripe gem.
 
 ## Installation
 
@@ -18,12 +18,29 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+In your app
 
-## Contributing
+1. Set token
 
-1. Fork it ( https://github.com/[my-github-username]/queenbee-ruby/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
+```ruby
+Queenbee.token = ENV['QUEENBEE_TOKEN']
+```
+
+2. Send order
+
+```ruby
+Queenbee::Order.create(
+  date: Time.now,
+  currency: 'cad',
+  client_email: 'client@email.com',
+  amount: '15',
+  total_price: '15',
+  city: 'Nancy',
+  country: 'France',
+  shipping: 0,
+  uid: SecureRandom.hex(4),
+  source: 'Stripe payment form'
+)
+```
+
+**For Sinatra app** you may need to add `require 'bundler/setup'`
