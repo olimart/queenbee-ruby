@@ -1,4 +1,6 @@
-# Queenbee::Ruby
+# Queenbee
+
+[![Build Status](https://semaphoreapp.com/api/v1/projects/7959e7f9-8fcb-4d10-85fe-79bc840b028c/262003/shields_badge.svg)](https://semaphoreapp.com/olimart/queenbee-ruby)
 
 Simple gem for communicating with external API. Heavily inspired by stripe gem.
 
@@ -6,7 +8,7 @@ Simple gem for communicating with external API. Heavily inspired by stripe gem.
 
 Add this line to your application's Gemfile:
 
-    gem 'queenbee-ruby'
+    gem 'queenbee'
 
 And then execute:
 
@@ -14,7 +16,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install queenbee-ruby
+    $ gem install queenbee
 
 ## Usage
 

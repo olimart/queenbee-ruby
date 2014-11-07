@@ -4,13 +4,13 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'queenbee/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "queenbee-ruby"
+  spec.name          = "queenbee"
   spec.version       = Queenbee::VERSION
   spec.authors       = ["Olivier"]
   spec.email         = ["olivier@yafoy.com"]
   spec.summary       = %q{Gem to send e-commerce orders to the Queenbee central app.}
-  spec.description   = ""
-  spec.homepage      = ""
+  spec.description   = "E-commerce analytics platform"
+  spec.homepage      = "https://github.com/olimart/queenbee-ruby"
   spec.license       = "MIT"
 
   spec.files         = Dir['LICENSE.md', 'README.md', 'lib/**/*']
