@@ -19,7 +19,7 @@ module Queenbee
     should "raise Queenbee::InvalidRequestError if not enough parameters" do
       begin
       rescue JSON::ParserError
-        assert_raises(Queenbee::InvalidRequestError) {Queenbee::Order.create}
+        assert_raises(Queenbee::InvalidRequestError) { Queenbee::Order.create }
       end
     end
   end

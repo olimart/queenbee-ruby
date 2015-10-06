@@ -53,3 +53,24 @@ Queenbee::Order.create(
 ```ruby
 rake test
 ```
+
+## Complete list of parameters
+
+- uid (string, must be unique per application)
+- date (datetime. default to record creation timestamp. Should be used to send historic data)
+- currency (string. i.e. 'CAD')
+- amount (decimal)
+- tax (decimal)
+- shipping (decimal)
+- total_price (decimal)
+- gift (boolean, default false)
+- coupon (boolean, default false)
+- coupon_code (string)
+- country (string. i.e. 'Canada')
+- city (string)
+- url (string)
+- client_email (string)
+- products_count (integer, default 1)
+- subscribed_at (datetime. For recurring order)
+- unsubscribed_at (datetime. For recurring order)
+- fees (decimal)

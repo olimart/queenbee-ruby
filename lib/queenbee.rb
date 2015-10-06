@@ -11,6 +11,7 @@ require "queenbee/version"
 
 # API operations
 require "queenbee/api_operations/create"
+require "queenbee/api_operations/update"
 
 # Resources
 require "queenbee/queenbee_object"
@@ -80,6 +81,11 @@ module Queenbee
     end
 
     [response, token]
+  end
+
+  def self.retrieve(id, opts={})
+    instance = self.new(id, opts)
+    instance
   end
 
   def self.handle_connection_error(e)
