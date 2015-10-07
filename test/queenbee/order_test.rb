@@ -22,5 +22,34 @@ module Queenbee
         assert_raises(Queenbee::InvalidRequestError) { Queenbee::Order.create }
       end
     end
+
+    should "Update Should return 200" do
+      response1 = Queenbee::Order.create(
+          date: "2014-07-01 14:50:28",
+          currency: "CAD", city: "Paris",
+          country: "Canada", client_email: "d@email.com",
+          uid: "0000099")
+      response = response = Queenbee::Order.save(
+          date: "2014-07-01 14:50:28",
+          currency: "CAD", city: "Paris",
+          country: "Canada", client_email: "kk@email.com",
+          uid: "0000099")
+      assert_equal "200", response.code
+    end
+
+    should " update should return 404 if id missing" do
+      response1 = Queenbee::Order.create(
+          date: "2014-07-01 14:50:28",
+          currency: "CAD", city: "Paris",
+          country: "Canada", client_email: "d@email.com",
+          uid: "0000099")
+      response = response = Queenbee::Order.save(
+          date: "2014-07-01 14:50:28",
+          currency: "CAD", city: "Paris",
+          country: "Canada", client_email: "kk@email.com",
+          uid: "")
+      assert_equal "404", response.code
+    end
+
   end
 end
