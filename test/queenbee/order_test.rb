@@ -7,7 +7,7 @@ module Queenbee
                   date: "2014-07-01 14:50:28",
                   currency: "CAD", city: "Paris",
                   country: "Canada", client_email: "d@email.com",
-                  uid: "0000099")
+                  uid: SecureRandom.hex(4))
       assert_equal "201", response.code
     end
 
@@ -23,26 +23,27 @@ module Queenbee
       end
     end
 
-    should "Update Should return 200" do
+    should "Update should return 200" do
+      uid = SecureRandom.hex(4)
       response1 = Queenbee::Order.create(
           date: "2014-07-01 14:50:28",
           currency: "CAD", city: "Paris",
           country: "Canada", client_email: "d@email.com",
-          uid: "0000099")
+          uid: uid)
       response = Queenbee::Order.save(
           date: "2014-07-01 14:50:28",
           currency: "CAD", city: "Paris",
           country: "Canada", client_email: "kk@email.com",
-          uid: "0000099")
+          uid: uid)
       assert_equal "200", response.code
     end
 
-    should " update should return 404 if id missing" do
+    should "Update should return 404 if UID missing" do
       response1 = Queenbee::Order.create(
           date: "2014-07-01 14:50:28",
           currency: "CAD", city: "Paris",
           country: "Canada", client_email: "d@email.com",
-          uid: "0000099")
+          uid: SecureRandom.hex(4))
       response = Queenbee::Order.save(
           date: "2014-07-01 14:50:28",
           currency: "CAD", city: "Paris",
