@@ -29,7 +29,7 @@ module Queenbee
           currency: "CAD", city: "Paris",
           country: "Canada", client_email: "d@email.com",
           uid: "0000099")
-      response = response = Queenbee::Order.save(
+      response = Queenbee::Order.save(
           date: "2014-07-01 14:50:28",
           currency: "CAD", city: "Paris",
           country: "Canada", client_email: "kk@email.com",
