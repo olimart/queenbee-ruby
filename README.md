@@ -47,6 +47,21 @@ Queenbee::Order.create(
 
 **For Sinatra app** you may need to add `require 'bundler/setup'`
 
+3. Update order
+
+```ruby
+Queenbee::Order.save(
+  uid: '111',
+  unsubscribed_at: Time.zone.now
+)
+```
+
+4. Delete order
+
+```ruby
+Queenbee::Order.delete('111')
+```
+
 
 ## Tests
 

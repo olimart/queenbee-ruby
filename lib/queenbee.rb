@@ -12,6 +12,7 @@ require "queenbee/version"
 # API operations
 require "queenbee/api_operations/create"
 require "queenbee/api_operations/update"
+require "queenbee/api_operations/delete"
 
 # Resources
 require "queenbee/queenbee_object"
