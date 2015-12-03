@@ -59,7 +59,7 @@ Queenbee::Order.save(
 4. Delete order
 
 ```ruby
-Queenbee::Order.delete('111')
+Queenbee::Order.delete(uid: '111')
 ```
 
 

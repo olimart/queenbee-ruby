@@ -41,19 +41,17 @@ module Queenbee
       response1 = Queenbee::Order.create(@valid_params)
       invalid_params = @valid_params.merge!(uid: "fakeuid")
       response = Queenbee::Order.save(invalid_params)
-      puts "---------#{response.inspect}"
-      puts "---------#{response.code}"
       assert_equal "404", response.code
     end
 
     should "Delete should return 204" do
       response1 = Queenbee::Order.create(@valid_params)
-      response = Queenbee::Order.delete(@uid)
+      response = Queenbee::Order.delete(uid: @uid)
       assert_equal "204", response.code
     end
 
     should "Delete should return 404 if UID incorrect" do
-      response = Queenbee::Order.delete("fakeuid")
+      response = Queenbee::Order.delete(uid: "fakeuid")
       assert_equal "404", response.code
     end
 
