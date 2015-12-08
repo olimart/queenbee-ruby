@@ -41,8 +41,6 @@ module Queenbee
       response1 = Queenbee::Order.create(@valid_params)
       invalid_params = @valid_params.merge!(uid: "fakeuid")
       response = Queenbee::Order.save(invalid_params)
-      puts "---------#{response.inspect}"
-      puts "---------#{response.code}"
       assert_equal "404", response.code
     end
 
