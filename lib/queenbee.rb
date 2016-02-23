@@ -12,6 +12,8 @@ require "queenbee/version"
 # API operations
 require "queenbee/api_operations/create"
 require "queenbee/api_operations/get"
+require "queenbee/api_operations/update"
+require "queenbee/api_operations/delete"
 
 # Resources
 require "queenbee/queenbee_object"
@@ -46,8 +48,9 @@ module Queenbee
 
     begin
       uri = URI(url)
+      request = Net::HTTP::Get.new(uri) if method == :get
       request = Net::HTTP::Post.new(uri) if method == :post
-
+      request = Net::HTTP::Put.new(uri) if method == :put
       request["User-Agent"] = "Queenbee gem"
       request["Authorization"] = "Token token=\"#{token}\""
       request["Content-Type"] = "application/json"
@@ -82,6 +85,11 @@ module Queenbee
     end
 
     [response, token]
+  end
+
+  def self.retrieve(id, opts={})
+    instance = self.new(id, opts)
+    instance
   end
 
   def self.handle_connection_error(e)
