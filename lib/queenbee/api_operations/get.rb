@@ -1,9 +1,9 @@
 module Queenbee
   module APIOperations
-    module Create
+    module Get
       module ClassMethods
-        def create(params = {}, token = nil)
-          response, token = Queenbee.request(:post, self.url, token, params)
+        def get(params = {}, token = nil)
+          response, token = Queenbee.request(:get, self.url, token, params)
           response
         end
       end

@@ -11,11 +11,13 @@ require "queenbee/version"
 
 # API operations
 require "queenbee/api_operations/create"
+require "queenbee/api_operations/get"
 
 # Resources
 require "queenbee/queenbee_object"
 require "queenbee/api_resource"
 require "queenbee/order"
+require "queenbee/metrics"
 
 # Errors
 require "queenbee/errors/queenbee_error"
@@ -84,14 +86,12 @@ module Queenbee
 
   def self.handle_connection_error(e)
     case e
-      when SocketError
-        message = "Unexpected error when trying to connect to Queenbee."
-
-      when NoMethodError
-        message = "Unexpected HTTP response code"
-
-      else
-        message = "Unexpected error communicating with Queenbee."
+    when SocketError
+      message = "Unexpected error when trying to connect to Queenbee."
+    when NoMethodError
+      message = "Unexpected HTTP response code"
+    else
+      message = "Unexpected error communicating with Queenbee."
     end
 
     raise APIConnectionError.new(message + "\n\n(Network error: #{e.message})")
@@ -105,21 +105,19 @@ module Queenbee
     end
 
     case rcode
-      when 400, 404, 422
-        raise invalid_request_error error, rcode, rbody, error_obj
-      when 401
-        raise authentication_error error, rcode, rbody, error_obj
-      when 500
-        raise api_error error, rcode, rbody, error_obj
-      else
-        # raise api_error error, rcode, rbody, error_obj
+    when 400, 404, 422
+      raise invalid_request_error error, rcode, rbody, error_obj
+    when 401
+      raise authentication_error error, rcode, rbody, error_obj
+    when 500
+      raise api_error error, rcode, rbody, error_obj
+    else
+      # raise api_error error, rcode, rbody, error_obj
     end
-
   end
 
   def self.invalid_request_error(error, rcode, rbody, error_obj)
-    InvalidRequestError.new(error[:message], error[:param], rcode,
-                            rbody, error_obj)
+    InvalidRequestError.new(error[:message], error[:param], rcode, rbody, error_obj)
   end
 
   def self.authentication_error(error, rcode, rbody, error_obj)

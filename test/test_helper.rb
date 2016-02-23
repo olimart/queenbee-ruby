@@ -5,7 +5,8 @@ require "shoulda"
 class Test::Unit::TestCase
 
   setup do
-    Queenbee.token = "e5b8dde5955381f73a24982fb3ce3c7f"
+    Queenbee.token = "111"
+    Queenbee.api_base = "http://localhost:3010/api"
   end
 
   teardown do
