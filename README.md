@@ -45,6 +45,13 @@ Queenbee::Order.create(
 )
 ```
 
+Optional attributes are avaiable for subscription-type such as:
+
+```ruby
+subscribed_at: '2015-05-05 20:13:45',
+unsubscribed_at: '2016-05-05 20:13:45'
+```
+
 **For Sinatra app** you may need to add `require 'bundler/setup'`
 
 3. Update order
