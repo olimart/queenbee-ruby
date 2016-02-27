@@ -1,16 +1,16 @@
 module Queenbee
   module APIOperations
     module Get
-      module ClassMethods
-        def get(params = {}, token = nil)
-          response, token = Queenbee.request(:get, self.url, token, params)
+      #module ClassMethods
+        def get(params = {}, token = nil,url)
+          response, token = Queenbee.request(:get, url, token, params)
           response
         end
-      end
+      #end
 
-      def self.included(base)
-        base.extend(ClassMethods)
-      end
+      # def self.included(base)
+      #   base.extend(ClassMethods)
+      # end
     end
   end
 end
