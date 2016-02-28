@@ -51,6 +51,7 @@ module Queenbee
       request = Net::HTTP::Get.new(uri) if method == :get
       request = Net::HTTP::Post.new(uri) if method == :post
       request = Net::HTTP::Put.new(uri) if method == :put
+      request = Net::HTTP::Delete.new(uri) if method == :delete
       request["User-Agent"] = "Queenbee gem"
       request["Authorization"] = "Token token=\"#{token}\""
       request["Content-Type"] = "application/json"
