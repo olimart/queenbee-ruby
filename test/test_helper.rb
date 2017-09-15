@@ -4,7 +4,7 @@ require 'shoulda'
 
 class Test::Unit::TestCase
   setup do
-  	Queenbee.api_base = 'http://localhost:3019/api'
+  	Queenbee.api_base = 'http://localhost:3010/api'
     Queenbee.token    = '111'
   end
 

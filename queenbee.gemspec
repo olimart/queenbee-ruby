@@ -24,5 +24,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency("json", "~> 1.8")
 
   spec.add_development_dependency "shoulda", "~> 3.4"
-  spec.add_development_dependency "test-unit", '~> 0'
+  spec.add_development_dependency "test-unit", "~> 3"
 end

@@ -9,6 +9,5 @@ module Queenbee
     def self.all
       Queenbee::Metrics.get('/metrics/all')
     end
-
   end
 end

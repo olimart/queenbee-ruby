@@ -28,7 +28,7 @@ In your app
 Queenbee.token = ENV['QUEENBEE_TOKEN']
 ```
 
-2. Send order
+2. Send order/event
 
 ```ruby
 Queenbee::Order.create(
@@ -45,7 +45,7 @@ Queenbee::Order.create(
 )
 ```
 
-Optional attributes are avaiable for subscription-type such as:
+Optional attributes are avaiable for subscription-type application such as:
 
 ```ruby
 subscribed_at: '2015-05-05 20:13:45',
@@ -78,6 +78,8 @@ rake test
 
 ## Complete list of parameters
 
+### Order
+
 - uid (string, must be unique per application)
 - date (datetime. default to record creation timestamp. Should be used to send historic data)
 - currency (string. i.e. 'CAD')
@@ -96,3 +98,10 @@ rake test
 - subscribed_at (datetime. For recurring order)
 - unsubscribed_at (datetime. For recurring order)
 - fees (decimal)
+
+### Event
+
+- date (datetime. required. i.e. 2014-07-01 14:50:28)
+- status: (string. required)
+- message: (text. required)
+- metadata: (hash. optional)

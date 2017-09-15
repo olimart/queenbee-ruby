@@ -18,6 +18,7 @@ require "queenbee/api_operations/delete"
 # Resources
 require "queenbee/queenbee_object"
 require "queenbee/api_resource"
+require "queenbee/event"
 require "queenbee/order"
 require "queenbee/metrics"
 
