@@ -7,8 +7,20 @@ module Queenbee
         date: "2014-07-01 14:50:28",
         status: "confirmed",
         message: "From the API",
-        metadata: {color: "pink", "sport": "basket-ball", "age": 25, "fruit": "banana"}
+        metadata: { color: "pink", "sport": "basket-ball", "age": 25, "fruit": "banana" }
       }
+    end
+
+    should "index should return status 200" do
+      response = Queenbee::Event.all
+      assert_equal "200", response.code
+      assert_equal Array, JSON.parse(response.body).class
+    end
+
+    should "index should paginate" do
+      response = Queenbee::Event.all(page: 10)
+      assert_equal "200", response.code
+      assert_equal Array, JSON.parse(response.body).class
     end
 
     should "create should return status 201" do
