@@ -66,9 +66,7 @@ module Queenbee
       http.use_ssl = true if uri.scheme == "https"
       http.verify_mode = OpenSSL::SSL::VERIFY_NONE if uri.scheme == "https"
 
-      response = http.start {|h|
-        h.request(request)
-      }
+      response = http.start { |h| h.request(request) }
 
       # since http.request doesn't throw such exceptions, check them by status codes
       handle_api_error(response.code, response.body)
@@ -82,7 +80,7 @@ module Queenbee
     rescue Errno::ECONNREFUSED, Errno::EHOSTUNREACH => e
       handle_connection_error(e)
     rescue Timeout::Error, Errno::EINVAL, Errno::ECONNRESET, EOFError,
-      Net::HTTPBadResponse, Net::HTTPHeaderSyntaxError, Net::ProtocolError  => e
+      Net::HTTPBadResponse, Net::HTTPHeaderSyntaxError, Net::ProtocolError => e
       handle_connection_error(e)
     end
 
