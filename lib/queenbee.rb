@@ -68,8 +68,7 @@ module Queenbee
 
       response = http.start { |h| h.request(request) }
 
-      # since http.request doesn't throw such exceptions, check them by status codes
-      handle_api_error(response.code, response.body)
+      handle_api_error(response.code, response.body) unless (200..299).include?(response.code.to_i)
 
     rescue SocketError => e
       handle_connection_error(e)
@@ -120,7 +119,7 @@ module Queenbee
     when 500
       raise api_error error, rcode, rbody, error_obj
     else
-      # raise api_error error, rcode, rbody, error_obj
+      raise api_error error, rcode, rbody, error_obj
     end
   end
 

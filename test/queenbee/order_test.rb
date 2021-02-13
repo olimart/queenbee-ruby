@@ -51,11 +51,11 @@ module Queenbee
     #   assert_equal "404", response.code
     # end
 
-    # should "Delete should return 204" do
-    #   response1 = Queenbee::Order.create(@valid_params)
-    #   response = Queenbee::Order.delete(@uid)
-    #   assert_equal "204", response.code
-    # end
+    should "Delete should return 204" do
+      response1 = Queenbee::Order.create(@valid_params)
+      response = Queenbee::Order.delete(@uid)
+      assert_equal "204", response.code
+    end
 
     # should "Delete should return 404 if UID incorrect" do
     #   response = Queenbee::Order.delete("fakeuid")
