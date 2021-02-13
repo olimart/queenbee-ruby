@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.2.0 / 2021-02-13
+
+- Fix order#delete when the API returns `204` status code
+
 ## 1.1.1 / 2020-11-27
 
 - Relax JSON dependency
