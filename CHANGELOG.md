@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.0 / 2022-11-17
+
+- Update root url
+
 ## 1.2.0 / 2021-02-13
 
 - Fix order#delete when the API returns `204` status code
