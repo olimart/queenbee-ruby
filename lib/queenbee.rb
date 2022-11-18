@@ -30,7 +30,7 @@ require "queenbee/errors/invalid_request_error"
 require "queenbee/errors/authentication_error"
 
 module Queenbee
-  @api_base = "https://queenbee-yafoy.herokuapp.com/api"
+  @api_base = "https://queenbee.yafoy.com/api"
 
   class << self
     attr_accessor :token, :api_base, :verify_ssl_certs, :api_version

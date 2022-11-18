@@ -45,7 +45,7 @@ Queenbee::Order.create(
 )
 ```
 
-Optional attributes are avaiable for subscription-type application such as:
+Optional attributes are available for subscription-type application such as:
 
 ```ruby
 subscribed_at: '2015-05-05 20:13:45',
