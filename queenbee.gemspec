@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = Queenbee::VERSION
   spec.authors       = ["Olivier"]
   spec.email         = ["olivier@yafoy.com"]
-  spec.summary       = %q{Gem to send e-commerce orders to the Queenbee central app.}
+  spec.summary       = "Ruby gem to send orders & events to Queenbee main app."
   spec.description   = "E-commerce analytics platform"
   spec.homepage      = "https://github.com/olimart/queenbee-ruby"
   spec.license       = "MIT"
