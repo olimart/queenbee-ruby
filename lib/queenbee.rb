@@ -123,15 +123,15 @@ module Queenbee
   end
 
   def self.invalid_request_error(message, rcode, rbody, error_obj)
-    InvalidRequestError.new(error[:message], error[:param], rcode, rbody, error_obj)
+    InvalidRequestError.new(message, rcode, rbody, error_obj)
   end
 
   def self.authentication_error(message, rcode, rbody, error_obj)
-    AuthenticationError.new(error[:message], rcode, rbody, error_obj)
+    AuthenticationError.new(message, rcode, rbody, error_obj)
   end
 
   def self.api_error(message, rcode, rbody, error_obj)
-    APIError.new(error[:message], rcode, rbody, error_obj)
+    APIError.new(message, rcode, rbody, error_obj)
   end
 
   def self.general_api_error(rcode, rbody)
