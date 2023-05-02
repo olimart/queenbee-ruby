@@ -12,20 +12,26 @@ module Queenbee
     end
 
     should "index should return status 200" do
-      response = Queenbee::Event.all
-      assert_equal "200", response.code
-      assert_equal Array, JSON.parse(response.body).class
+      VCR.use_cassette("events.all") do
+        response = Queenbee::Event.all
+        assert_equal "200", response.code
+        assert_equal Array, JSON.parse(response.body).class
+      end
     end
 
     should "index should paginate" do
-      response = Queenbee::Event.all(page: 10)
-      assert_equal "200", response.code
-      assert_equal Array, JSON.parse(response.body).class
+      VCR.use_cassette("events.page") do
+        response = Queenbee::Event.all(page: 10)
+        assert_equal "200", response.code
+        assert_equal Array, JSON.parse(response.body).class
+      end
     end
 
     should "create should return status 201" do
-      response = Queenbee::Event.create(@valid_params)
-      assert_equal "201", response.code
+      VCR.use_cassette("event.created") do
+        response = Queenbee::Event.create(@valid_params)
+        assert_equal "201", response.code
+      end
     end
 
     should "raise Queenbee::AuthenticationError if no token provided" do

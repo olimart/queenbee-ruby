@@ -16,8 +16,10 @@ module Queenbee
     end
 
     should "create should return status 201" do
-      response = Queenbee::Order.create(@valid_params)
-      assert_equal "201", response.code
+      VCR.use_cassette("order.created") do
+        response = Queenbee::Order.create(@valid_params)
+        assert_equal "201", response.code
+      end
     end
 
     should "raise Queenbee::AuthenticationError if no token provided" do
@@ -33,9 +35,10 @@ module Queenbee
     end
 
     should "Update should return 200" do
-      response1 = Queenbee::Order.create(@valid_params)
-      response = Queenbee::Order.save(@updated_params)
-      assert_equal "200", response.code
+      VCR.use_cassette("order.updated") do
+        response = Queenbee::Order.save(@updated_params.merge!(uid: "334a9f80"))
+        assert_equal "200", response.code
+      end
     end
 
     # Queenbee API raises error if record not found `find_by!`
@@ -52,9 +55,10 @@ module Queenbee
     # end
 
     should "Delete should return 204" do
-      response1 = Queenbee::Order.create(@valid_params)
-      response = Queenbee::Order.delete(@uid)
-      assert_equal "204", response.code
+      VCR.use_cassette("order.deleted") do
+        response = Queenbee::Order.delete("334a9f80")
+        assert_equal "204", response.code
+      end
     end
 
     # should "Delete should return 404 if UID incorrect" do

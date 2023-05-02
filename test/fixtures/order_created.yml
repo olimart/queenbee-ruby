@@ -1,0 +1,66 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://localhost:3010/api/orders
+    body:
+      encoding: UTF-8
+      string: '{"date":"2014-07-01 14:50:28","currency":"CAD","city":"Paris","country":"Canada","client_email":"kk@email.com","amount":"10","shipping":"2","total_price":"12","uid":"a9348ed3"}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Queenbee gem
+      Host:
+      - localhost:3010
+      Authorization:
+      - Token token="111"
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Origin
+      Cache-Control:
+      - no-store, must-revalidate, private, max-age=0
+      X-Request-Id:
+      - e0b9eb0e-8cb3-4b5d-91df-00ddb38cb975
+      X-Runtime:
+      - '0.245328'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.24, sql.active_record;dur=168.97,
+        instantiation.active_record;dur=0.42, process_action.action_controller;dur=229.72
+      X-Miniprofiler-Original-Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Miniprofiler-Ids:
+      - 73uhqnptdw2nkzyf306j,u0xmzdk27ftq0t7wuxy0,20nq8lu6zufm1q2ic532,jd2vxss1dqf6n77wz7ea,tdhb1h94m3usdufnqt1p,y90v1qn65vzd2ieu97ri,shzavukst68n21g2bxfb,k0xevdsiao6glb3ausjx,nyfqk413nk9gqan7k59s,vf2ddk685cyw8hg317zp,oicwv07lvb8dvltkotbb,tncy9woa6jmnbeelz1d1,v0saieg3lw76ofi9di7b,1867grt3wjpjpmk4mkde,3vf543q1p0hx3ys2us7z,rrpa3u9bmwrp1ka7jbuf,b2keqmbkk8vvmqbwue5y,pqey6ky4s9c1kwrgl0l2,hq6vy33mzpqtpcanuqfu,ve9njwy3xmbf368th56o
+      Set-Cookie:
+      - __profilin=p%3Dt; path=/; HttpOnly; SameSite=Lax
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"id":16,"uid":"a9348ed3","date":"2014-07-01T14:50:28.000Z","currency":"cad","amount":"10.0","shipping":"2.0","total_price":"12.0","gift":false,"coupon":false,"coupon_code":null,"country":"canada","city":"paris","url":null,"client_email":"kk@email.com","products_count":1,"application_id":1,"created_at":"2023-05-02T17:23:08.090Z","updated_at":"2023-05-02T17:23:08.090Z","keywords":"01/07/2014,
+        app1","week_day":2,"month_day":1,"hour":14,"tax":"0.0","source":null,"subscribed_at":null,"unsubscribed_at":null,"fees":"0.0","referral":null}'
+    http_version:
+  recorded_at: Tue, 02 May 2023 17:23:08 GMT
+recorded_with: VCR 4.0.0
