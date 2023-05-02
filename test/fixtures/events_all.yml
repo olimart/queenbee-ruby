@@ -1,0 +1,71 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:3010/api/events?page=1
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Queenbee gem
+      Host:
+      - localhost:3010
+      Authorization:
+      - Token token="111"
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Origin
+      Cache-Control:
+      - no-store, must-revalidate, private, max-age=0
+      X-Request-Id:
+      - 98134a19-553b-4336-9560-d625909dc3ee
+      X-Runtime:
+      - '0.026752'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.21, sql.active_record;dur=4.79, instantiation.active_record;dur=0.34,
+        process_action.action_controller;dur=13.36
+      X-Miniprofiler-Original-Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Miniprofiler-Ids:
+      - tdhb1h94m3usdufnqt1p,y90v1qn65vzd2ieu97ri,shzavukst68n21g2bxfb,k0xevdsiao6glb3ausjx,nyfqk413nk9gqan7k59s,vf2ddk685cyw8hg317zp,oicwv07lvb8dvltkotbb,tncy9woa6jmnbeelz1d1,v0saieg3lw76ofi9di7b,1867grt3wjpjpmk4mkde,3vf543q1p0hx3ys2us7z,rrpa3u9bmwrp1ka7jbuf,b2keqmbkk8vvmqbwue5y,pqey6ky4s9c1kwrgl0l2,hq6vy33mzpqtpcanuqfu,ve9njwy3xmbf368th56o,b1yq9w3fxo3hkdozx9w2,tt6q1zx107g8skmb7655,43cehlp2kktc2n5cyuie,g64x57pn5uy6avxq8unv
+      Set-Cookie:
+      - __profilin=p%3Dt; path=/; HttpOnly; SameSite=Lax
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '[{"id":1,"status":"confirmed","message":"From the API","date":"2014-07-01T14:50:28.000Z","metadata":{"age":25,"color":"pink","fruit":"banana","sport":"basket-ball"},"alert":false,"keywords":"app1","application_id":1,"created_at":"2023-05-02T15:59:46.361Z","updated_at":"2023-05-02T15:59:46.361Z"},{"id":2,"status":"confirmed","message":"From
+        the API","date":"2014-07-01T14:50:28.000Z","metadata":{"age":25,"color":"pink","fruit":"banana","sport":"basket-ball"},"alert":false,"keywords":"app1","application_id":1,"created_at":"2023-05-02T16:34:14.532Z","updated_at":"2023-05-02T16:34:14.532Z"},{"id":3,"status":"confirmed","message":"From
+        the API","date":"2014-07-01T14:50:28.000Z","metadata":{"age":25,"color":"pink","fruit":"banana","sport":"basket-ball"},"alert":false,"keywords":"app1","application_id":1,"created_at":"2023-05-02T16:41:19.926Z","updated_at":"2023-05-02T16:41:19.926Z"},{"id":4,"status":"confirmed","message":"From
+        the API","date":"2014-07-01T14:50:28.000Z","metadata":{"age":25,"color":"pink","fruit":"banana","sport":"basket-ball"},"alert":false,"keywords":"app1","application_id":1,"created_at":"2023-05-02T16:56:58.538Z","updated_at":"2023-05-02T16:56:58.538Z"},{"id":5,"status":"confirmed","message":"From
+        the API","date":"2014-07-01T14:50:28.000Z","metadata":{"age":25,"color":"pink","fruit":"banana","sport":"basket-ball"},"alert":false,"keywords":"app1","application_id":1,"created_at":"2023-05-02T16:57:47.995Z","updated_at":"2023-05-02T16:57:47.995Z"},{"id":6,"status":"confirmed","message":"From
+        the API","date":"2014-07-01T14:50:28.000Z","metadata":{"age":25,"color":"pink","fruit":"banana","sport":"basket-ball"},"alert":false,"keywords":"app1","application_id":1,"created_at":"2023-05-02T16:59:16.129Z","updated_at":"2023-05-02T16:59:16.129Z"},{"id":7,"status":"confirmed","message":"From
+        the API","date":"2014-07-01T14:50:28.000Z","metadata":{"age":25,"color":"pink","fruit":"banana","sport":"basket-ball"},"alert":false,"keywords":"app1","application_id":1,"created_at":"2023-05-02T17:23:07.452Z","updated_at":"2023-05-02T17:23:07.452Z"}]'
+    http_version:
+  recorded_at: Tue, 02 May 2023 17:23:07 GMT
+recorded_with: VCR 4.0.0

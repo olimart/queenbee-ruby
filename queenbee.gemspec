@@ -18,9 +18,13 @@ Gem::Specification.new do |spec|
 
   spec.require_paths = ["lib"]
 
-  spec.add_development_dependency "bundler"
-  spec.add_development_dependency "rake"
+  spec.add_development_dependency "bundler", "~> 2"
+  spec.add_development_dependency "rake", "~> 13"
   spec.add_dependency("json", "> 1.8")
   spec.add_development_dependency "shoulda", "~> 3.4"
   spec.add_development_dependency "test-unit"
+  # spec.add_development_dependency "minitest", "~> 5.0"
+  # spec.add_development_dependency "minitest-reporters", "~> 1.3", ">= 1.3.0"
+  spec.add_development_dependency "vcr", "~> 4.0"
+  spec.add_development_dependency "webmock", "~> 3.4"
 end

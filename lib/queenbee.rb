@@ -69,7 +69,6 @@ module Queenbee
       response = http.start { |h| h.request(request) }
 
       handle_api_error(response.code, response.body) unless (200..299).include?(response.code.to_i)
-
     rescue SocketError => e
       handle_connection_error(e)
     rescue NoMethodError => e
@@ -113,25 +112,25 @@ module Queenbee
 
     case rcode
     when 400, 404, 422
-      raise invalid_request_error error, rcode, rbody, error_obj
+      raise invalid_request_error "Invalid request", rcode, rbody, error_obj
     when 401
-      raise authentication_error error, rcode, rbody, error_obj
+      raise authentication_error "Unauthorized", rcode, rbody, error_obj
     when 500
-      raise api_error error, rcode, rbody, error_obj
+      raise api_error "Server returned an error", rcode, rbody, error_obj
     else
-      raise api_error error, rcode, rbody, error_obj
+      raise api_error "An error has occurred", rcode, rbody, error_obj
     end
   end
 
-  def self.invalid_request_error(error, rcode, rbody, error_obj)
+  def self.invalid_request_error(message, rcode, rbody, error_obj)
     InvalidRequestError.new(error[:message], error[:param], rcode, rbody, error_obj)
   end
 
-  def self.authentication_error(error, rcode, rbody, error_obj)
+  def self.authentication_error(message, rcode, rbody, error_obj)
     AuthenticationError.new(error[:message], rcode, rbody, error_obj)
   end
 
-  def self.api_error(error, rcode, rbody, error_obj)
+  def self.api_error(message, rcode, rbody, error_obj)
     APIError.new(error[:message], rcode, rbody, error_obj)
   end
 
