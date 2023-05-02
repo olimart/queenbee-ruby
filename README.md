@@ -1,6 +1,6 @@
 # Queenbee
 
-[![Build Status](https://semaphoreci.com/api/v1/olimart/queenbee-ruby/branches/master/badge.svg)](https://semaphoreci.com/olimart/queenbee-ruby)
+[![Tests](https://github.com/olimart/queenbee-ruby/actions/workflows/ci.yml/badge.svg)](https://github.com/olimart/queenbee-ruby/actions/workflows/ci.yml)
 
 Simple gem for communicating with external API. Heavily inspired by stripe gem.
 
