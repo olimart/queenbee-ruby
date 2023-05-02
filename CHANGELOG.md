@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.4.0 / 2023-05-02
+
+- Ruby 3.2 support
+- Fix error reporting
+
 ## 1.3.0 / 2022-11-17
 
 - Update root url
