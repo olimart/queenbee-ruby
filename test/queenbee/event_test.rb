@@ -7,7 +7,7 @@ module Queenbee
         date: "2014-07-01 14:50:28",
         status: "confirmed",
         message: "From the API",
-        metadata: { color: "pink", "sport": "basket-ball", "age": 25, "fruit": "banana" }
+        metadata: {color: "pink", "sport": "basket-ball", "age": 25, "fruit": "banana"}
       }
     end
 
