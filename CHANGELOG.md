@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5.0 / 2023-11-30
+
+- Better error handling by reporting the server error message
+
 ## 1.4.1 / 2023-05-02
 
 - Fix error reporting (again)

@@ -59,7 +59,7 @@ unsubscribed_at: '2016-05-05 20:13:45'
 ```ruby
 Queenbee::Order.save(
   uid: '111',
-  unsubscribed_at: Time.zone.now
+  unsubscribed_at: Time.current
 )
 ```
 
