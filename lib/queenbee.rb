@@ -127,15 +127,15 @@ module Queenbee
   end
 
   def self.authentication_error(message, rcode, rbody, error_obj)
-    AuthenticationError.new(message, nil, rcode, rbody, error_obj)
+    AuthenticationError.new(message, rcode, rbody, error_obj)
   end
 
   def self.api_error(message, rcode, rbody, error_obj)
-    APIError.new(message, nil, rcode, rbody, error_obj)
+    APIError.new(message, rcode, rbody, error_obj)
   end
 
   def self.general_api_error(rcode, rbody)
     APIError.new("Invalid response object from API: #{rbody.inspect} " +
-                 "(HTTP response code was #{rcode})", nil, rcode, rbody)
+                 "(HTTP response code was #{rcode})", rcode, rbody)
   end
 end
