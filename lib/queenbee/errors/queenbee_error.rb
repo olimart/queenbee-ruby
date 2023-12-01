@@ -13,8 +13,15 @@ module Queenbee
     end
 
     def to_s
-      status_string = @http_status.nil? ? "" : "(Status #{@http_status}) "
-      "#{status_string}#{@message}"
+      [
+        status_string,
+        json_body,
+        message
+      ].compact.join(" - ")
+    end
+
+    def status_string
+      http_status.nil? ? "" : "(Status #{http_status})"
     end
   end
 end

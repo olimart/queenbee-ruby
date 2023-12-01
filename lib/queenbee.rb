@@ -110,32 +110,32 @@ module Queenbee
       raise general_api_error(rcode, rbody)
     end
 
-    case rcode
+    case rcode.to_i
     when 400, 404, 422
-      raise invalid_request_error "Invalid request", rcode, rbody, error_obj
+      raise invalid_request_error("Invalid request", rcode, rbody, error_obj).to_s
     when 401
-      raise authentication_error "Unauthorized", rcode, rbody, error_obj
+      raise authentication_error("Unauthorized", rcode, rbody, error_obj).to_s
     when 500
-      raise api_error "Server returned an error", rcode, rbody, error_obj
+      raise api_error("Server returned an error", rcode, rbody, error_obj).to_s
     else
-      raise api_error "An error has occurred", rcode, rbody, error_obj
+      raise api_error("An error has occurred", rcode, rbody, error_obj).to_s
     end
   end
 
   def self.invalid_request_error(message, rcode, rbody, error_obj)
-    InvalidRequestError.new(message, rcode, rbody, error_obj)
+    InvalidRequestError.new(message, nil, rcode, rbody, error_obj)
   end
 
   def self.authentication_error(message, rcode, rbody, error_obj)
-    AuthenticationError.new(message, rcode, rbody, error_obj)
+    AuthenticationError.new(message, nil, rcode, rbody, error_obj)
   end
 
   def self.api_error(message, rcode, rbody, error_obj)
-    APIError.new(message, rcode, rbody, error_obj)
+    APIError.new(message, nil, rcode, rbody, error_obj)
   end
 
   def self.general_api_error(rcode, rbody)
     APIError.new("Invalid response object from API: #{rbody.inspect} " +
-                 "(HTTP response code was #{rcode})", rcode, rbody)
+                 "(HTTP response code was #{rcode})", nil, rcode, rbody)
   end
 end
